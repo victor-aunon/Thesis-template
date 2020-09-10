@@ -1,0 +1,12 @@
+# LaTeX auxiliary files
+*.out
+*.aux
+*.spl
+*.synctex.gz
+*.blg
+*.maf
+*.mtc*
+*.xdv
+*.run.xml
+*.synctex.gz
+*-blx.bib

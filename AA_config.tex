@@ -1,0 +1,319 @@
+%*****************************************************************************%
+%*****************************************************************************%
+%********************* CONFIGURATION FILE - PREAMBLE *************************%
+%*****************************************************************************%
+%*****************************************************************************%
+
+\listfiles
+% places a list of the files used and their version numbers in the log file
+
+%*****************************************************************************%
+%******************************** CONSTANTS **********************************%
+%*****************************************************************************%
+
+\newif\ifcustomFonts
+% Set customFonts to true if you want to use any OTF font in your system
+\customFontstrue % or \customFontsfalse for false
+
+% Compiler to be used - XETEX IF YOU ARE USING FONTSPEC
+\ifcustomFonts
+    \newcommand{\compiler}{xetex} % xetex, pdftex, etc.
+\else
+    \newcommand{\compiler}{pdftex} % pdftex, pdftex, etc.
+\fi
+
+% Thesis title
+\newcommand{\thesisTitle}{The fabulous name of my thesis}
+% Institution logo location
+\newcommand{\logoLocation}{logos/logo.pdf}
+% Department name
+\newcommand{\department}{My department or research center}
+% Author
+\newcommand{\authorMe}{Mr. Ángel Auñón}
+% City and date
+\newcommand{\cityDate}{My city, October 2020}
+
+% Supervisors
+\newcommand{\supervisorOne}{Dr. Supervisor 1}
+\newcommand{\supervisorTwo}{Dr. Supervisor 2} % may be empty
+\newcommand{\supervisorThree}{Dr. Supervisor 3} % may be empty
+
+% Examiners
+\newcommand{\examinerOne}{Dr. examiner 1}
+\newcommand{\examinerTwo}{Dr. examiner 2}
+\newcommand{\examinerThree}{Dr. examiner 3}
+
+% Defense committee
+\newcommand{\chairman}{Dr. Wonderful Chairman}
+\newcommand{\secretary}{Dr. Awesome Secretary}
+\newcommand{\member}{Dr. Incredible Member}
+
+% Paragraph font size
+\newcommand{\fontSize}{11pt}
+% Paragraph line spacing
+\newcommand{\lineSpacing}{16.5pt} % \fontSize * 1.5 (1.1, 1.2, 1.3, ...)
+
+% Bibliography file location
+\newcommand{\bibliographyFile}{bibliography/bibliography.bib}
+
+% Hyperref options
+\newcommand{\linkColor}{black}
+\newcommand{\citeColor}{blue}
+\newcommand{\fileColor}{magenta}
+\newcommand{\urlColor}{blue}
+
+% Fonts
+% If you want to load LaTeX typeface fonts take a look at the link below to
+% see their names https://www.overleaf.com/learn/latex/font_typefaces e.g. 
+% ppl for palatino, ptm for Times, lmss for Latin Modern Sans Serif ...
+\newcommand{\mainFont}{Merriweather} % Serif font (preferable) 
+\newcommand{\altFont}{Merriweather Sans} % Sans serif font
+\newcommand{\numbersFont}{Source Serif Pro}
+\newcommand{\mathFont}{TeX Gyre DejaVu Math}
+% Useful help for selecting math fonts: https://tex.stackexchange.com/questions/425098/which-opentype-math-fonts-are-available
+\newcommand{\chapterFont}{Merriweather Sans}
+\newcommand{\sectionFont}{Merriweather Sans}
+\newcommand{\subSectionFont}{Merriweather Sans}
+\newcommand{\subSubSectionFont}{Merriweather Sans}
+
+% Accent colour
+\newcommand{\accentColor}{ForestGreen}
+% https://ctan.javinator9889.com/macros/latex/contrib/xcolor/xcolor.pdf
+
+%*****************************************************************************%
+%******************************** PACKAGES ***********************************%
+%*****************************************************************************%
+
+\usepackage[T1]{fontenc}    % selects T1 as the document font encoding
+\usepackage[catalan,spanish,english]{babel} % languages package
+\usepackage[utf8]{inputenc} % use UTF-8 input encoding (allows accent marks, ñ)
+\usepackage{blindtext}      % package to generate dummy text (demo template)
+\usepackage{amsmath}        % Maths package
+\usepackage{amssymb}        % Maths symbols package
+\ifcustomFonts
+    \usepackage{fontspec}   % package to use custom fonts
+    \usepackage{unicode-math} % package to replace math fonts, MUST GO AFTER
+                            % AMSMATH AMSSYMB
+\fi
+\usepackage{anyfontsize}    % package to modify font size
+\usepackage{titlesec}       % package to change titles and subtitles properties
+\usepackage[svgnames]{xcolor} % package to use already defined colours
+\usepackage{lmodern}        % high quality rendering text
+\usepackage{graphicx}       % graphs package
+\usepackage{float}          % package to place the figures
+\usepackage{fancyhdr}       % package to setup headers and footers
+\usepackage{emptypage}      % removes header, footer and page n. in empty pages
+\usepackage{lettrine}       % package to create an stylish first letter
+\usepackage{caption}        % manages captions properties
+\usepackage[english]{minitoc} % package to create mini-TOCs at the beginning of
+                            % any chapter
+\usepackage{siunitx}        % manages physical units
+\usepackage{longtable}      % package to create big tables larger than a page
+\usepackage{tabulary}       % justify text in a table and set auto width
+\usepackage{tocloft}        % package to modify TOC and LOF appearance
+\usepackage[titletoc,toc,title]{appendix} % package to create appendix pages
+\usepackage{epigraph}       % package to manage quotes
+\usepackage[switch, modulo]{lineno} % package to enumerate the lines, useful
+                            % for reviewing. Options-> switch: numbers on the
+                            % outer margin, switch*: on the inner margin,
+                            % left: on the left margin, right: on the right
+                            % margin, modulo: only prints numbers which are
+                            % multiple of five,
+\usepackage{framed}         % package to create a frame around figures, tables
+\usepackage{physics}        % extended functions for writing equations
+\usepackage[
+    style           = numeric,
+    defernumbers    = false,
+    backend         = bibtex,
+    bibstyle        = numeric,
+    firstinits      = true,
+    maxnames        = 10,
+    block           = space,
+    backref         = true,
+    sorting         = none
+]{biblatex}                 % package to manage the bibliography
+\usepackage{xpatch}         % used later to modify the bibliography
+\usepackage[
+    \compiler,
+    bookmarks    = true,
+    pdftoolbar   = true,
+    pdfmenubar   = true,
+    pdffitwindow = false,
+    colorlinks   = true,
+    linkcolor    = \linkColor,
+    citecolor    = \citeColor,
+    filecolor    = \fileColor,
+    urlcolor     = \urlColor
+]{hyperref}                 % package to create links in references, cites and
+                            % table of contents (TOC)
+
+%*****************************************************************************%
+%************************** PACKAGE ADJUSTMENTS ******************************%
+%*****************************************************************************%
+
+%***************************** PAGE MARGINS **********************************%
+
+% Left margin of odd pages (4.5 cm default, 2.5 cm if \oddsidemargin)
+\oddsidemargin=1.5cm
+% Left margin of even pages (4.5 cm default, 2.5 cm if \evensidemargin)
+\evensidemargin=1.5cm
+% body page height (19 cm default)
+\textheight=18.5cm
+% body page width (14 cm default)
+\textwidth=13cm
+% Top margin (3 cm default)
+\topmargin=1.7cm
+\usepackage{geometry}       % package to define the page margins and sizes
+
+%******************************* TEXT SPACING ********************************%
+
+% Space between paragraphs
+\parskip=0.4cm
+% Extra space between rows in tables
+\renewcommand{\arraystretch}{1.25}
+% Indentation at the beginning of the paragraph
+%\parindent=0mm % commented to keep the indentation
+% Space before titles in the table of contents
+\setlength{\cftbeforetoctitleskip}{-0.4cm}
+% Space before titles in the list of figures
+\setlength{\cftbeforeloftitleskip}{-0.4cm}
+% Space before titles in the list of tables
+\setlength{\cftbeforelottitleskip}{-0.4cm}
+% Space before chapters in TOC
+\setlength{\cftbeforechapskip}{0.5cm}
+% Space before sections in TOC
+\setlength{\cftbeforesecskip}{0.2cm}
+% Space before subsections in TOC
+% Space before subsubsections in TOC
+\setlength{\cftbeforesubsecskip}{0.2cm}
+\setlength{\cftbeforesubsubsecskip}{0.3cm}
+% Space before figures in LOF
+\setlength{\cftbeforefigskip}{0.3cm}
+% Space before tables in LOT
+\setlength{\cftbeforetabskip}{0.3cm}
+
+%******************************* TOC OPTIONS *********************************%
+
+% Maximum mini-TOC depth level
+\setcounter{minitocdepth}{4}
+% Maximum document depth level
+\setcounter{secnumdepth}{4}
+% Maximum TOC depth level
+\setcounter{tocdepth}{1}
+
+%*************************** BIBLIOGRAPHY OPTIONS ****************************%
+
+% Select bibliography file. Replaces \bibliography command
+\addbibresource{\bibliographyFile}
+
+% Remove "in:" - OPTIONAL
+\renewbibmacro{in:}{%
+\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}} 
+% http://tex.stackexchange.com/questions/10682/suppress-in-biblatex
+
+% Replace bibliography section name of each chapter - OPTIONAL
+\defbibheading{subbibliography}{
+    \section*{Chapter~\ref{refsegment:\therefsection\therefsegment} References}}
+
+%*****************************************************************************%
+%************************** DEFINE NEW COMMANDS ******************************%
+%*****************************************************************************%
+
+% Call the lettrine command with an initial letter 1 line taller
+\newcommand{\letr}{\lettrine[lines=1]}
+% https://modules.contextgarden.net/dl/t-lettrine/doc/context/third/lettrine/lettrine-doc.pdf
+
+%****************************** FONT OPTIONS *********************************%
+
+% Colour the number of the sections and subsections and rest of subsections
+\renewcommand\thesection{\color{\accentColor}\thechapter.\arabic{section}}
+
+\ifcustomFonts
+    \setmainfont{\mainFont}
+    \setmathfont{\mathFont}
+    \newfontfamily{\altfont}{\altFont}
+    \newfontfamily{\numbersfont}{\numbersFont}
+    \newfontfamily{\chapterfont}{\chapterFont}
+    \newfontfamily{\sectionfont}{\sectionFont}
+    \newfontfamily{\subsectionfont}{\subSectionFont}
+    \newfontfamily{\subsubsectionfont}{\subSubSectionFont}
+\else
+    \renewcommand\rmdefault{\mainFont} % Sets main serif font
+    \newcommand{\altfont}{\fontfamily{\altFont}\selectfont}
+    \newcommand{\numbersfont}{\fontfamily{\numbersFont}\selectfont}
+    \newcommand{\chapterfont}{\fontfamily{\chapterFont}\selectfont}
+    \newcommand{\sectionfont}{\fontfamily{\sectionFont}\selectfont}
+    \newcommand{\subsectionfont}{\fontfamily{\subSectionFont}\selectfont}
+    \newcommand{\subsubsectionfont}{\fontfamily{\subSubSectionFont}\selectfont}
+\fi
+
+% Titlesec usage
+% \titleformat{command}[shape]{format}{label}{sep}{before-code}{after-code}
+% \titlespacing{command}{left}{before-sep}{after-sep}
+
+% Change chapter color and font
+\titleformat{\chapter}[display]{\Huge\bfseries}{\textcolor{\accentColor}%
+{\chaptername \, \Huge\thechapter}}{24pt}{\chapterfont\bfseries\fontsize{%
+30}{36}\selectfont}
+% Chapter top and bottom padding
+\titlespacing{\chapter}{0pt}{50pt}{40pt}
+
+% Change section and subsection color and format
+% CHANGED IN THEIR DECLARATION, RIGHT IN THE LABEL
+
+% Define a format for TOC, LOT, LOF, Publications, etc. titles & subtitles
+\newcommand{\titlestyle}{\bfseries\altfont\fontsize{26pt}{42pt}%
+\selectfont}
+\newcommand{\subtitlestyle}{\large\bfseries\altfont}
+
+% TOC, LOT, and LOF title fonts
+\renewcommand{\cfttoctitlefont}{\titlestyle}
+\renewcommand{\cftloftitlefont}{\titlestyle}
+\renewcommand{\cftlottitlefont}{\titlestyle}
+
+% TOC fonts
+% Chapter number and title
+\renewcommand{\cftchappresnum}{\Large\bfseries\textcolor{\accentColor}}
+\renewcommand{\cftchapfont}{\bfseries\fontsize{14pt}{21pt}\selectfont}
+% Section number and title
+\renewcommand{\cftsecpresnum}{\large\bfseries}
+\renewcommand{\cftsecfont}{\sectionfont\fontsize{12pt}{18pt}\selectfont}
+% Subsection number and title
+\renewcommand{\cftsubsecpresnum}{\large\bfseries}
+\renewcommand{\cftsubsecfont}{\subsectionfont\fontsize{12pt}{18pt}%
+\selectfont}
+% Subsubsection number and title
+\renewcommand{\cftsubsubsecpresnum}{\large}
+\renewcommand{\cftsubsubsecfont}{\subsubsectionfont\fontsize{12pt}{18pt}%
+\selectfont}
+
+% Change section, subsection and subsubsection appearances w/o messing the TOC
+\titleformat*{\section}{\sectionfont\bfseries\fontsize{16pt}{24pt}\selectfont}
+\titleformat*{\subsection}{\subsectionfont\bfseries\fontsize{14pt}{28pt}%
+\selectfont}
+\titleformat*{\subsubsection}{\subsubsectionfont\fontsize{14pt}{28pt}%
+\selectfont}
+% Set minitoc sections appearances back to normalfont
+\mtcsetfont{minitoc}{section}{\normalfont\small}
+
+%***************************** CAPTIONS OPTIONS ******************************%
+
+\DeclareCaptionFormat{captionstyle}{\itshape{\altfont\small#1#2#3}}
+\captionsetup{format=captionstyle, labelfont={color=\accentColor, bf,%
+normalsize}}
+
+%***************************** EPIGRAPH OPTIONS ******************************%
+
+% Maximum line width of the quote 
+\renewcommand{\epigraphwidth}{0.8\linewidth}
+% Quote on the right side of the page
+\renewcommand{\epigraphflush}{flushright}
+% Text right alignment
+\renewcommand{\textflush}{flushright}
+% Remove dividing line between quote and author
+\renewcommand{\epigraphrule}{0pt}
+
+%******************************* NEW SI UNITS ********************************%
+
+% Usage
+% \DeclareSIUnit\myunit{myunit}

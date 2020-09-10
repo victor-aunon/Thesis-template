@@ -1,0 +1,120 @@
+%*****************************************************************************%
+%*****************************************************************************%
+%************************** THESIS - ANGEL AUÑÓN *****************************%
+%*****************************************************************************%
+%*****************************************************************************%
+
+\documentclass[a4paper,11pt,twoside,openright]{extbook}
+\input{AA_config} % load preamble
+
+%*****************************************************************************%
+%******************************** DOCUMENT ***********************************%
+%*****************************************************************************%
+\begin{document}
+
+\fontsize{\fontSize}{\lineSpacing}\selectfont
+
+%*****************************************************************************%
+%************************** DOCUMENT INTRODUCTION ****************************%
+%*****************************************************************************%
+
+\frontmatter % frontmatter page style
+\pagestyle{plain}
+\dominitoc % creates the mini-TOC of each chapter
+
+%*****************************************************************************%
+%************************************ COVER **********************************%
+%*****************************************************************************%
+
+\include{AA_cover}
+\cleardoublepage
+
+%*****************************************************************************%
+%***************** ABSTRACT, PUBLICATIONS AND ACKNOWLEDGEMENTS ***************%
+%*****************************************************************************%
+
+\include{AA_abstract}
+\include{AA_publications}
+\include{AA_acknowledgments}
+\cleardoublepage
+
+%*****************************************************************************%
+%****************************** INITIAL QUOTE ********************************%
+%*****************************************************************************%
+
+% Use \thispagestyle{plain} to preserve non-custom page number in the footer
+\input{AA_empty_header_footer} % No headers and no footers
+\include{AA_initial_quote}
+\cleardoublepage
+
+%*****************************************************************************%
+%******************************** GLOBAL TOC *********************************%
+%*****************************************************************************%
+
+{
+\tableofcontents % Chapters and sections
+}
+\cleardoublepage
+\cleardoublepage
+{
+\listoftables % Tables
+}
+\cleardoublepage
+\cleardoublepage
+{
+\listoffigures % Figures
+}
+\cleardoublepage
+
+%*****************************************************************************%
+%******************************* NOMENCLATURE ********************************%
+%*****************************************************************************%
+
+\pagestyle{plain} % No headers and no footers
+\include{AA_nomenclature}
+
+%*****************************************************************************%
+%*************************** BODY OF THE DOCUMENT ****************************%
+%*****************************************************************************%
+
+\mainmatter % mainmatter page style
+\input{AA_header} % Custom header and footer
+\include{chapter_1/chapter_1}
+\thispagestyle{plain} % No headers and no footers
+\input{AA_header} % Custom header and footer
+\include{chapter_2/chapter_2}
+\thispagestyle{plain} % No headers and no footers
+
+%*****************************************************************************%
+%***************************** DOCUMENT CLOSURE ******************************%
+%*****************************************************************************%
+
+\appendix
+\pagestyle{plain} % No headers and no footers
+\backmatter % backmatter page style
+
+%*****************************************************************************%
+%*************************** DOCUMENT APPENDICES *****************************%
+%*****************************************************************************%
+
+%\thispagestyle{plain}
+%\begin{appendices}
+%\include{my appendix}
+%\end{appendices}
+
+%*****************************************************************************%
+%******************************* BIBLIOGRAPHY ********************************%
+%*****************************************************************************%
+
+\input{AA_header_global_bib} % No header, just custom footer
+\printbibliography[heading=bibintoc]\label{biblio} 
+% The title of the Bibliography can be changed with the option "Title=..."
+\cleardoublepage
+
+%*****************************************************************************%
+%******************************* ENDING QUOTE ********************************%
+%*****************************************************************************%
+
+\input{AA_empty_header_footer} % No headers and no footers
+\include{AA_ending_quote}
+\end{document}

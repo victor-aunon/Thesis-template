@@ -1,0 +1,47 @@
+\chapter{The first chapter}\label{chap1}
+{
+\hypersetup{linkcolor=\linkColor}
+\minitoc
+}
+\newpage
+
+% Uncomment the line below if you do not want to print headers in the first
+% chapter page
+% \thispagestyle{plain}
+
+\begin{refsegment}
+
+\section{First section of chapter 1}\label{sec:chap1.sec1}
+
+\letr{T}{his} is how you can create a fancy capital letter at the beginning %
+of each chapter or section, just use \verb|\letr{First letter word}| %
+\verb|{rest of the letters}|, e.g. \verb|\letr{T}{his}|\par
+\blindtext
+\blindtext
+
+\section{Second section of chapter 1}\label{sec:chap1.sec2}
+\blindtext
+\par
+\blinditemize[5]
+\par
+\blindtext
+
+\subsection{This a subsection}\label{sec:chap1.sec2sub1}
+\blindtext
+
+\subsubsection{This is a subsubsection}\label{sec:chap1.sec2sub1sub1}
+
+This is a subsubsection in~\autoref{sec:chap1.sec2sub1}
+\blindtext
+
+Now I am going to cite this book \cite{dummyBook}.
+\newpage
+
+% Load custom header for references section
+\input{AA_header_bib}
+\printbibliography[segment=1,heading=subbibliography]
+% Attach this references section to the chapter mini-TOC
+\addcontentsline{toc}{section}{Chapter 1 References}
+
+% Do not forget to close the refsegment
+\end{refsegment}

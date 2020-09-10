@@ -1,0 +1,41 @@
+%*****************************************************************************%
+%***************************** HEADER & FOOTER *******************************%
+%*****************************************************************************%
+
+\pagestyle{fancy}
+\fancyhf{} % removes current header and footer
+
+%********************************** HEADER ***********************************%
+
+% Undo chapter and section automatic uppercase
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{ \markright{#1}{}}
+
+% Section name on right side in odd pages
+\fancyhead[RO]{\slshape{\textcolor{\accentColor}{\textbf{\Large{\thesection}}}%
+\, \textup{|} \, \mdseries \sectionfont\rightmark}}
+% Chapter name on left side in even pages
+\fancyhead[LE]{\slshape{\textcolor{\accentColor}{\textbf{\chaptername\:\Large%
+{\thechapter}}} \, \textup{|}  \, \mdseries \sectionfont\leftmark}}
+
+% Information:
+% - \thepage     -> number of the current page
+% - \leftmark    -> current chapter name printed like "CHAPTER 3. THIS IS THE
+%                   CHAPTER TITLE"
+% - \rightmark   -> current section name printed like "1.6. THIS IS THE SECTION
+%                   TITLE"
+% - \chaptername -> the name chapter in the current language. If this is
+%                   English, it will display "Chapter"
+% - \thechapter  -> current chapter number
+% - \thesection  -> current section number 
+
+\renewcommand{\headrulewidth}{0cm} % Removes division line in the header
+
+%********************************** FOOTER ***********************************%
+
+% Page number on right side in odd pages
+\fancyfoot[RO]{\slshape{\sectionfont Page} \textcolor{\accentColor}{\bfseries%
+ \Large\thepage}}
+% Page number on left side in even pages
+\fancyfoot[LE]{\slshape{\sectionfont Page} \textcolor{\accentColor}{\bfseries%
+\Large\thepage}}

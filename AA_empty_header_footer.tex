@@ -1,0 +1,30 @@
+%*****************************************************************************%
+%************************* HEADER & FOOTER - EMPTY ***************************%
+%*****************************************************************************%
+
+\pagestyle{fancy}
+\fancyhf{} % removes current header and footer
+
+%********************************** HEADER ***********************************%
+% Remove headers
+\fancyhead[RO]{}
+\fancyhead[LE]{}
+
+% Information:
+% - \thepage     -> number of the current page
+% - \leftmark    -> current chapter name printed like "CHAPTER 3. THIS IS THE
+%                   CHAPTER TITLE"
+% - \rightmark   -> current section name printed like "1.6. THIS IS THE SECTION
+%                   TITLE"
+% - \chaptername -> the name chapter in the current language. If this is
+%                   English, it will display "Chapter"
+% - \thechapter  -> current chapter number
+% - \thesection  -> current section number 
+
+\renewcommand{\headrulewidth}{0cm} % Removes division line in the header
+
+%********************************** FOOTER ***********************************%
+
+% Remove footers
+\fancyfoot[RO]{}
+\fancyfoot[LE]{}

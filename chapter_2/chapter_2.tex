@@ -1,0 +1,60 @@
+\chapter{The second chapter}\label{chap2}
+{
+\hypersetup{linkcolor=\linkColor}
+\minitoc
+}
+\newpage
+
+% Uncomment the line below if you do not want to print headers in the first
+% chapter page
+% \thispagestyle{plain}
+
+\begin{refsegment}
+
+\section{First section of chapter 2}\label{sec:chap2.sec1}
+
+Here I am going to insert a picture of my cat.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./chapter_2/figures/Greta.jpg}
+    \caption{She is Greta.}
+    \label{fig:Greta}
+\end{figure}
+
+Some maths!
+
+\blindmathtrue
+\blindmathpaper
+\blindmathfalse
+
+\section{Second section of chapter 2}\label{sec:chap2.sec2}
+
+Another citation \cite{dummyArticle}
+
+\noindent And a table, using my font for displaying numbers. 
+
+\begin{center}
+    \begin{table}[h!]
+        \begin{longtable}{lll}
+            \textit{Letter} & \textit{Type} & \textit{Value}\\
+            A & vowel & \numbersfont{23} \\
+            D & consonant & \numbersfont{35} \\
+            F & consonant & \numbersfont{66} \\
+            J & consonant & \numbersfont{41} \\
+            O & vowel & \numbersfont{20} \\
+            \caption{A table using two fonts.}
+        \end{longtable}
+    \end{table}
+\end{center}
+
+\newpage
+
+% Load custom header for references section
+\input{AA_header_bib}
+\printbibliography[segment=1,heading=subbibliography]
+% Attach this references section to the chapter mini-TOC
+\addcontentsline{toc}{section}{Chapter 2 References}
+
+% Do not forget to close the refsegment
+\end{refsegment}
