@@ -88,6 +88,8 @@ Besides, you can customize the template using your preferred packages. _Change i
 
 A similar version of this template has been used before in Universitat Politècnica de València. Consequently, UPV logos are included in the **logos** folder for your convenience.
 
+Do not forget to install the fonts in `fonts` folder before compiling this template (in case you want to use the same fonts).
+
 If you want to support me, you can [buy me a coffee](https://www.buymeacoffee.com/victoraunon) and include the name of the repository in your acknowledgements.
 
 ---
