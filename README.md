@@ -15,7 +15,7 @@ You can do this in **two** ways:
 
 2. Using fonts that come as _LaTeX_ packages. In this case, you do not have to copy the font name, but its abbreviation as shown in https://www.overleaf.com/learn/latex/font_typefaces.
 
-    _**Note:*_ if you want to use _LaTeX_ fonts, you have to set `\customFontsfalse` at the beginning of the `AA_config.tex` file and compile the document with _PdfLaTeX_.
+    _**Note:**_ if you want to use _LaTeX_ fonts, you have to set `\customFontsfalse` at the beginning of the `AA_config.tex` file and compile the document with _PdfLaTeX_.
 
 Variables:
 
