@@ -1,0 +1,63 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{dummyBook}{book}{}
+    \name{author}{1}{}{%
+      {{hash=sgA}{%
+         prefix={smart},
+         prefixi={s\bibinitperiod},
+         family={guy},
+         familyi={g\bibinitperiod},
+         given={A},
+         giveni={A},
+      }}%
+    }
+    \strng{namehash}{gAs1}
+    \strng{fullhash}{gAs1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{The great and imaginary book of LaTeX templates}
+    \field{year}{2020}
+  \endentry
+
+  \entry{dummyArticle}{article}{}
+    \name{author}{1}{}{%
+      {{hash=AA}{%
+         family={Auñón},
+         familyi={A\bibinitperiod},
+         given={Angel},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AA1}
+    \strng{fullhash}{AA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{1}
+    \field{pages}{1\bibrangedash 20}
+    \field{title}{How you can use a thesis template?}
+    \verb{url}
+    \verb https://github.com/victor-aunon/Thesis-template
+    \endverb
+    \field{volume}{1}
+    \field{journaltitle}{Non-real journal}
+    \field{year}{2020}
+  \endentry
+\enddatalist
+\endinput

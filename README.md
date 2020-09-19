@@ -67,7 +67,7 @@ The default _accent color_ in the template is _**ForestGreen**_ `#218a21`. This 
 
 ### Changing the color of hyperref links
 
-You can change this colors by changing the values of the next variables: `linkColor`, `citeColor`, `fileColor`  and `urlColor`.
+You can change this colors by changing the values of the next variables: `linkColor`, `linkColorTOC`, `citeColor`, `fileColor`  and `urlColor`.
 
 
 ## How to compile the template?

@@ -57,7 +57,9 @@
 \newcommand{\bibliographyFile}{bibliography/bibliography.bib}
 
 % Hyperref options
-\newcommand{\linkColor}{black}
+\newcommand{\linkColor}{blue}
+\newcommand{\linkColorTOC}{black} % Allows you to use another color for the 
+                                  % TOC links, see minitocs in chapter 1 & 2
 \newcommand{\citeColor}{blue}
 \newcommand{\fileColor}{magenta}
 \newcommand{\urlColor}{blue}
@@ -91,10 +93,11 @@
 \usepackage{amsmath}        % Maths package
 \usepackage{amssymb}        % Maths symbols package
 \ifcustomFonts
-    \usepackage{fontspec}   % package to use custom fonts
-    \usepackage{unicode-math} % package to replace math fonts, MUST GO AFTER
-                            % AMSMATH AMSSYMB
+\usepackage{fontspec}   % package to use custom fonts
+\usepackage{unicode-math} % package to replace math fonts, MUST GO AFTER
+% AMSMATH AMSSYMB
 \fi
+\usepackage{geometry}       % package to define the page margins and sizes
 \usepackage{anyfontsize}    % package to modify font size
 \usepackage{titlesec}       % package to change titles and subtitles properties
 \usepackage[svgnames]{xcolor} % package to use already defined colours
@@ -109,7 +112,10 @@
                             % any chapter
 \usepackage{siunitx}        % manages physical units
 \usepackage{longtable}      % package to create big tables larger than a page
+\usepackage{multirow}       % package to create multirows in tables
+\usepackage{multicol}       % package to create multicolumns in tables
 \usepackage{tabulary}       % justify text in a table and set auto width
+\usepackage{subcaption}     % create subfigures, INCOMPATIBLE WITH SUBFIGURE
 \usepackage{tocloft}        % package to modify TOC and LOF appearance
 \usepackage[titletoc,toc,title]{appendix} % package to create appendix pages
 \usepackage{epigraph}       % package to manage quotes
@@ -133,6 +139,7 @@
     sorting         = none
 ]{biblatex}                 % package to manage the bibliography
 \usepackage{xpatch}         % used later to modify the bibliography
+\usepackage{xurl}           % package to split long URLs, import after biblatex
 \usepackage[
     \compiler,
     bookmarks    = true,
@@ -153,17 +160,8 @@
 
 %***************************** PAGE MARGINS **********************************%
 
-% Left margin of odd pages (4.5 cm default, 2.5 cm if \oddsidemargin)
-\oddsidemargin=1.5cm
-% Left margin of even pages (4.5 cm default, 2.5 cm if \evensidemargin)
-\evensidemargin=1.5cm
-% body page height (19 cm default)
-\textheight=18.5cm
-% body page width (14 cm default)
-\textwidth=13cm
-% Top margin (3 cm default)
-\topmargin=1.7cm
-\usepackage{geometry}       % package to define the page margins and sizes
+% Add some extra margin to the gutter
+\geometry{bindingoffset=0.75cm}
 
 %******************************* TEXT SPACING ********************************%
 

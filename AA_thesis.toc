@@ -1,0 +1,15 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}The first chapter}{1}{chapter.1}%
+\contentsline {section}{\numberline {\color {ForestGreen}1.1}First section of chapter 1}{2}{section.1.1}%
+\contentsline {section}{\numberline {\color {ForestGreen}1.2}Second section of chapter 1}{2}{section.1.2}%
+\contentsline {subsection}{\numberline {\color {ForestGreen}1.2.1}This a subsection}{3}{subsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {\color {ForestGreen}1.2.1.1}This is a subsubsection}{4}{subsubsection.1.2.1.1}%
+\contentsline {section}{Chapter 1 References}{5}{subsubsection.1.2.1.1}%
+\contentsline {chapter}{\numberline {2}The second chapter}{7}{chapter.2}%
+\contentsline {section}{\numberline {\color {ForestGreen}2.1}First section of chapter 2}{8}{section.2.1}%
+\contentsline {section}{\numberline {\color {ForestGreen}2.2}Second section of chapter 2}{11}{section.2.2}%
+\contentsline {section}{Chapter 2 References}{12}{table.2.1}%
+\contentsline {chapter}{Bibliography}{13}{appendix*.7}%
