@@ -52,6 +52,10 @@
 \newcommand{\fontSize}{11pt}
 % Paragraph line spacing
 \newcommand{\lineSpacing}{16.5pt} % \fontSize * 1.5 (1.1, 1.2, 1.3, ...)
+% Numbersfont font size
+\newcommand{\numbersFontSize}{12pt}
+% Numbersfont line spacing
+\newcommand{\numbersLineSpacing}{13.2pt} % \fontSize * 1.2 (1.1, 1.2, 1.3, ...)
 
 % Bibliography file location
 \newcommand{\bibliographyFile}{bibliography/bibliography.bib}
@@ -93,38 +97,41 @@
 \usepackage{amsmath}        % Maths package
 \usepackage{amssymb}        % Maths symbols package
 \ifcustomFonts
-\usepackage{fontspec}   % package to use custom fonts
-\usepackage{unicode-math} % package to replace math fonts, MUST GO AFTER
-% AMSMATH AMSSYMB
+    \usepackage{fontspec}   % package to use custom fonts
+    \usepackage{unicode-math} % package to replace math fonts, MUST GO AFTER
+                            % AMSMATH AMSSYMB
 \fi
 \usepackage{geometry}       % package to define the page margins and sizes
 \usepackage{anyfontsize}    % package to modify font size
 \usepackage{titlesec}       % package to change titles and subtitles properties
 \usepackage[svgnames]{xcolor} % package to use already defined colours
 \usepackage{lmodern}        % high quality rendering text
-\usepackage{graphicx}       % graphs package
+\usepackage{graphicx}       % graphs package, draft option to avoid 
+                            % rendering figures
 \usepackage{float}          % package to place the figures
 \usepackage{fancyhdr}       % package to setup headers and footers
 \usepackage{emptypage}      % removes header, footer and page n. in empty pages
 \usepackage{lettrine}       % package to create an stylish first letter
 \usepackage{caption}        % manages captions properties
+\usepackage{hyphenat}       % package to avoid hyphenation on demand
 \usepackage[english]{minitoc} % package to create mini-TOCs at the beginning of
                             % any chapter
 \usepackage{siunitx}        % manages physical units
-\usepackage{longtable}      % package to create big tables larger than a page
 \usepackage{multirow}       % package to create multirows in tables
 \usepackage{multicol}       % package to create multicolumns in tables
+\usepackage{supertabular}   % jpackage to create big tables
 \usepackage{tabulary}       % justify text in a table and set auto width
 \usepackage{subcaption}     % create subfigures, INCOMPATIBLE WITH SUBFIGURE
 \usepackage{tocloft}        % package to modify TOC and LOF appearance
 \usepackage[titletoc,toc,title]{appendix} % package to create appendix pages
 \usepackage{epigraph}       % package to manage quotes
-\usepackage[switch, modulo]{lineno} % package to enumerate the lines, useful
-                            % for reviewing. Options-> switch: numbers on the
+\usepackage[switch, modulo, pagewise]{lineno} % package to enumerate the lines,
+                            % useful for reviewing.
+                            % Options-> switch: numbers on the
                             % outer margin, switch*: on the inner margin,
                             % left: on the left margin, right: on the right
                             % margin, modulo: only prints numbers which are
-                            % multiple of five,
+                            % multiple of five, pagewise: reset count on newpage
 \usepackage{framed}         % package to create a frame around figures, tables
 \usepackage{physics}        % extended functions for writing equations
 \usepackage[
@@ -192,12 +199,24 @@
 
 %******************************* TOC OPTIONS *********************************%
 
-% Maximum mini-TOC depth level
+% Maximum mini-TOC depth level: subsubsection
 \setcounter{minitocdepth}{4}
-% Maximum document depth level
+% Maximum document depth level: subsubsection
 \setcounter{secnumdepth}{4}
-% Maximum TOC depth level
-\setcounter{tocdepth}{1}
+% Maximum TOC depth level: subsubsection
+\setcounter{tocdepth}{3}
+
+% Avoid hyphenation in TOC - OPTIONAL
+\makeatletter
+\renewcommand{\@tocrmarg}{\@pnumwidth plus1fil}
+\makeatother
+
+% Reduce indent of section titles in TOCs
+\renewcommand*{\cftsecindent}{2em}
+% Reduce indent of subsection titles in TOCs
+\renewcommand*{\cftsubsecindent}{3em}
+% Reduce indent of subsubsection titles in TOCs
+\renewcommand*{\cftsubsubsecindent}{4em}
 
 %*************************** BIBLIOGRAPHY OPTIONS ****************************%
 
@@ -205,9 +224,22 @@
 \addbibresource{\bibliographyFile}
 
 % Remove "in:" - OPTIONAL
-\renewbibmacro{in:}{%
-\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}} 
-% http://tex.stackexchange.com/questions/10682/suppress-in-biblatex
+\renewbibmacro{in:}{}%
+    % \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+%http://tex.stackexchange.com/questions/10682/suppress-in-biblatexo
+
+% Parenthesis between volume in article instead of dot when using default 
+% author-year style
+\renewbibmacro*{volume+number+eid}{
+  \setunit{\addcomma\space}
+  \printfield{volume}
+  \setunit*{\addnbspace}% NEW (optional); there's also \addnbthinspace
+  \printfield{number}
+  \setunit{\addcomma\space}
+  \printfield{eid}
+  \printunit{\addcomma\space}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+% https://tex.stackexchange.com/questions/12806/guidelines-for-customizing-biblatex-styles
 
 % Replace bibliography section name of each chapter - OPTIONAL
 \defbibheading{subbibliography}{
@@ -220,6 +252,14 @@
 % Call the lettrine command with an initial letter 1 line taller
 \newcommand{\letr}{\lettrine[lines=1]}
 % https://modules.contextgarden.net/dl/t-lettrine/doc/context/third/lettrine/lettrine-doc.pdf
+
+% Puts a text in red "To be referenced" that will point to a reference in the 
+% future
+\newcommand{\emptycite}{\textcolor{red}{[TO BE REFERENCED]}}
+
+\newcommand{\ti}{\textit}
+
+\newcommand*\rot{\rotatebox{75}}
 
 %****************************** FONT OPTIONS *********************************%
 
@@ -287,15 +327,17 @@
 
 % Change section, subsection and subsubsection appearances w/o messing the TOC
 \titleformat*{\section}{\sectionfont\bfseries\fontsize{16pt}{24pt}\selectfont}
-\titleformat*{\subsection}{\subsectionfont\bfseries\fontsize{14pt}{28pt}%
+\titleformat*{\subsection}{\subsectionfont\bfseries\fontsize{14pt}{21pt}%
 \selectfont}
-\titleformat*{\subsubsection}{\subsubsectionfont\fontsize{14pt}{28pt}%
+\titleformat*{\subsubsection}{\subsubsectionfont\fontsize{12pt}{18pt}%
 \selectfont}
+
 % Set minitoc sections appearances back to normalfont
 \mtcsetfont{minitoc}{section}{\normalfont\small}
 
 %***************************** CAPTIONS OPTIONS ******************************%
 
+% Figure captions in italic and colored according to \accentColor
 \DeclareCaptionFormat{captionstyle}{\itshape{\altfont\small#1#2#3}}
 \captionsetup{format=captionstyle, labelfont={color=\accentColor, bf,%
 normalsize}}
@@ -303,7 +345,7 @@ normalsize}}
 %***************************** EPIGRAPH OPTIONS ******************************%
 
 % Maximum line width of the quote 
-\renewcommand{\epigraphwidth}{0.8\linewidth}
+\renewcommand{\epigraphwidth}{0.7\linewidth}
 % Quote on the right side of the page
 \renewcommand{\epigraphflush}{flushright}
 % Text right alignment

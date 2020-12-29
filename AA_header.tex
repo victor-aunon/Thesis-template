@@ -3,6 +3,11 @@
 %*****************************************************************************%
 
 \pagestyle{fancy}
+% Use custom footer and remove header in first chapter page (chapter TOC)
+\fancypagestyle{plain}{
+    \fancyhead[LE]{}
+    \fancyhead[RO]{}
+}
 \fancyhf{} % removes current header and footer
 
 %********************************** HEADER ***********************************%

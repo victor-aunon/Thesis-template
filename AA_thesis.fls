@@ -124,6 +124,8 @@ INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\hyphenat\hyphenat.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\hyphenat\hyphenat.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\minitoc\minitoc.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\minitoc\minitoc.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\minitoc\mtcmess.sty
@@ -364,12 +366,12 @@ INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator.sty
-INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\longtable.sty
-INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\longtable.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\supertabular\supertabular.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\supertabular\supertabular.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tabulary\tabulary.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tabulary\tabulary.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty
@@ -493,8 +495,6 @@ INPUT chapter_2\chapter_2.aux
 INPUT AA_ending_quote.aux
 INPUT AA_ending_quote.aux
 OUTPUT AA_thesis.aux
-INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\ltcaption.sty
-INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\ltcaption.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-basic-dictionary-English.dict
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-basic-dictionary-English.dict
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\siunitx\siunitx-abbreviations.cfg

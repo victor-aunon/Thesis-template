@@ -11,5 +11,5 @@
 \contentsline {chapter}{\numberline {2}The second chapter}{7}{chapter.2}%
 \contentsline {section}{\numberline {\color {ForestGreen}2.1}First section of chapter 2}{8}{section.2.1}%
 \contentsline {section}{\numberline {\color {ForestGreen}2.2}Second section of chapter 2}{11}{section.2.2}%
-\contentsline {section}{Chapter 2 References}{12}{table.2.1}%
-\contentsline {chapter}{Bibliography}{13}{appendix*.7}%
+\contentsline {section}{Chapter 2 References}{12}{table.caption.4}%
+\contentsline {chapter}{Bibliography}{15}{appendix*.5}%

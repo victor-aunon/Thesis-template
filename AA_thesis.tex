@@ -83,9 +83,18 @@
 \mainmatter % mainmatter page style
 \input{AA_header} % Custom header and footer
 \include{chapter_1/chapter_1}
-\thispagestyle{plain} % No headers and no footers
+\cleardoublepage
+
+\thispagestyle{empty} % No headers and no footers, no page number
 \input{AA_header} % Custom header and footer
 \include{chapter_2/chapter_2}
+\cleardoublepage
+
+% Create at least a one page separation before the complete bibliography - OPT.
+\thispagestyle{empty}
+\mbox{} % forces an empty page
+\cleardoublepage
+
 \thispagestyle{plain} % No headers and no footers
 
 %*****************************************************************************%
@@ -118,6 +127,7 @@
 %******************************* ENDING QUOTE ********************************%
 %*****************************************************************************%
 
+\thispagestyle{empty} % No headers and no footers, no page number
 \input{AA_empty_header_footer} % No headers and no footers
 \include{AA_ending_quote}
 \end{document}
